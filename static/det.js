@@ -5,17 +5,27 @@ var loginDetails
 var userpasswordid = document.getElementById('userpassword');
 
 function initAll() {
-    document.getElementById('wrong_credentials').style.display = 'none'
+   /* document.getElementById('wrong_credentials').style.display = 'none'
     document.getElementById('loading').style.display = 'none'
     document.getElementById('emptyemail').style.display = 'none'
     document.getElementById('emptypass').style.display = 'none'
     loginDetails = document.getElementById('login');
     loginDetails.onclick = userLogin;
   //  userpasswordid.onfocusout = userred;
-    userpasswordid.onfocusout = passred;
+    userpasswordid.onfocusout = passred;*/
 }
 
-
+function onloginclick() {
+    document.getElementById('wrong_credentials').style.display = 'none'
+    document.getElementById('loading').style.display = 'none'
+    document.getElementById('emptyemail').style.display = 'none'
+    document.getElementById('emptypass').style.display = 'none'
+    document.getElementById('signupModalCenter').style.display = 'none'
+    loginDetails = document.getElementById('login');
+    loginDetails.onclick = userLogin;
+  //  userpasswordid.onfocusout = userred;
+    userpasswordid.onfocusout = passred;
+}
 
 //var useremail = useremailid.value;
 var userpassword;

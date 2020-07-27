@@ -16,7 +16,7 @@ def home(request):
 
 
 def usersignup(request):
-    userdetails = DetUsers()
+    '''userdetails = DetUsers()
     userdetails.fname = request.POST['first_name']
     userdetails.lname = request.POST['last_name']
     userdetails.useremail = request.POST['emailid']
@@ -25,8 +25,26 @@ def usersignup(request):
     if userpass == passwordtwo:
         userdetails.userpass = userpass
     userdetails.save()
-    #return redirect('usersignup')
-    return render(request, 'det/index.html')
+    return render(request, 'det/index.html') '''
+    #var url = '/login?fname='+allvalues[0]+'&lname='+allvalues[1]+'&emailid='+allvalues[2]+'&passwrd='+allvalues[3];
+    userdetails = DetUsers()
+    fname1 = request.GET['fname']
+    lname1 = request.GET['lname']
+    useremail1 = request.GET['emailid']
+    userpass1 = request.GET['passwrd']
+    userdetails.fname = fname1
+    userdetails.lname = lname1
+    userdetails.useremail = useremail1
+    userdetails.userpass = userpass1
+    dbusername = DetUsers.objects.filter(useremail=useremail1)
+    if not dbusername:
+        try:
+            userdetails.save()
+            return HttpResponse('true')
+        except:
+            return HttpResponse('false')
+    else:
+        return HttpResponse('userexist')
 
 
 def userlogin(request):
@@ -35,7 +53,6 @@ def userlogin(request):
   #print(useremaillogin)
   #print(userpasswordlogin)
   dbusername = DetUsers.objects.filter(Q(useremail=useremaillogin) & Q(userpass=userpasswordlogin))
-  print(dbusername)
   if not dbusername:
       return HttpResponse('false')
       #return render(request, 'det/home.html')

@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <script type="text/javascript" src="{% static 'det.js' %}"></script>
+    <script type="text/javascript" src="{% static 'detsignup.js' %}"></script>
     <script type="text/css" src="{% static 'det.css' %}"></script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -36,10 +37,10 @@
         <h10 style="color: white"> DET</h10>
     </a>
     <div>
-        <button type="button" class="btn btn-dark font-weight-bold font-italic my-2 my-sm-0" data-toggle="modal"
+        <button type="button" onclick="onloginclick()" class="btn btn-dark font-weight-bold font-italic my-2 my-sm-0" data-toggle="modal"
                 data-target="#loginModalCenter">Login
         </button>
-        <button type="button" class="btn btn-dark font-weight-bold font-italic my-2 my-sm-0" data-toggle="modal"
+        <button type="button" onclick="onsignupclick()" class="btn btn-dark font-weight-bold font-italic my-2 my-sm-0" data-toggle="modal"
                 data-target="#signupModalCenter">SignUp
         </button>
     </div>
@@ -52,19 +53,19 @@
             <form method="post" action="home">
                 {% csrf_token %}
                 <div class="modal-body">
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="wrong_credentials">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="wrong_credentials">
                       <strong>Wrong Credentials!</strong>
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="emptyemail">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="emptyemail">
                       <strong>Email Can't be blank.</strong>
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="emptypass">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="emptypass">
                       <strong>Password can't be blank.</strong>
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -98,36 +99,6 @@
     </div>
 </div>
 
-<!--<div class="modal fade" id="loginModalCenter" tabindex="-1" role="dialog" aria-labelledby="loginModalCenterTitle"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">̥
-            <form method="post" action="home">
-                {% csrf_token %}
-                <div class="modal-body">
-                    <div class="input-group input-group-lg">
-                        <h5 class="modal-title" id="loginModalLongTitle">User Login</h5>
-                        <button type="button" class="close d-flex justify-content-right" style="margin-left: 70%"
-                                data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span></button>
-                    </div>
-                    <div class="input-group input-group-lg my-4">
-                        <input type="text" class="form-control" aria-label="Large"
-                               aria-describedby="inputGroup-sizing-sm" name="useremail" placeholder="Username">
-                    </div>
-                    <div class="input-group input-group-lg my-4">
-                        <input type="password" class="form-control" aria-label="Large"
-                               aria-describedby="inputGroup-sizing-sm" name="userpassword" placeholder="Password">
-                    </div>
-                    <div class="input-group input-group-lg my-4 d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary">Login</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>-->
-
 <div class="modal fade" id="signupModalCenter" tabindex="-1" role="dialog" aria-labelledby="signupModalCenterTitle"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -135,6 +106,51 @@
             <form method="post" action="usersignup">
                 {% csrf_token %}
                 <div class="modal-body">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="signupmodal">
+                      <h10 id="blankmodal">Below field(s) can't be blank<br></h10>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-secondary" style="width: 3rem; height: 3rem;" role="status" id="loadingsignup">
+                          <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="validemailone">
+                        <strong>Not a valid email !</strong>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="something_wrong">
+                        <strong>Something wrong !</strong>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert" id="signup_success">
+                        <strong>Signup Successfull, click here to login <button type="button" onclick="onloginclick()" class="btn btn-dark font-weight-bold font-italic my-2 my-sm-0" data-toggle="modal"
+                data-target="#loginModalCenter">Login
+        </button> </strong>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="user_exist">
+                        <strong>Email Already Exist, click here to login <button type="button" onclick="onloginclick()" class="btn btn-dark font-weight-bold font-italic my-2 my-sm-0" data-toggle="modal"
+                data-target="#loginModalCenter">Login
+        </button> </strong>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="passwordnotmatch">
+                        <strong>Password not match !</strong>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
                     <div class="input-group input-group-lg">
                         <h5 class="modal-title" id="signupModalLongTitle">User SignUp</h5>
                         <button type="button" class="close d-flex justify-content-right" style="margin-left: 70%"
@@ -143,27 +159,27 @@
                         </button>
                     </div>
                     <div class="input-group input-group-lg my-4">
-                        <input type="text" class="form-control" aria-label="Large" name="first_name"
-                               aria-describedby="inputGroup-sizing-sm" placeholder="First Name">
+                        <input type="text" class="form-control" aria-label="Large" id="first_name" name="first_name"
+                               aria-describedby="inputGroup-sizing-sm" placeholder="First Name" onfocusout="fnamefo()">
                     </div>
                     <div class="input-group input-group-lg my-4">
-                        <input type="text" class="form-control" aria-label="Large" name="last_name"
-                               aria-describedby="inputGroup-sizing-sm" placeholder="Last Name">
+                        <input type="text" class="form-control" aria-label="Large" id="last_name" name="last_name"
+                               aria-describedby="inputGroup-sizing-sm" placeholder="Last Name" onfocusout="lnamefo()">
                     </div>
                     <div class="input-group input-group-lg my-4">
-                        <input type="text" class="form-control" aria-label="Large" name="emailid"
-                               aria-describedby="inputGroup-sizing-sm" placeholder="Email ID">
+                        <input type="text" class="form-control" aria-label="Large" id="emailid" name="emailid"
+                               aria-describedby="inputGroup-sizing-sm" placeholder="Email ID" onfocusout="emailidfo()">
                     </div>
                     <div class="input-group input-group-lg my-4">
-                        <input type="password" class="form-control" aria-label="Large" name="passwordone"
-                               aria-describedby="inputGroup-sizing-sm" placeholder="Password">
+                        <input type="password" class="form-control" aria-label="Large" id="passwordone" name="passwordone"
+                               aria-describedby="inputGroup-sizing-sm" placeholder="Password" onfocusout="passwordonefo()">
                     </div>
                     <div class="input-group input-group-lg my-4">
-                        <input type="password" class="form-control" aria-label="Large" name="passwordtwo"
-                               aria-describedby="inputGroup-sizing-sm" placeholder="Re-password">
+                        <input type="password" class="form-control" aria-label="Large" id="passwordtwo" name="passwordtwo"
+                               aria-describedby="inputGroup-sizing-sm" placeholder="Re-password" onfocusout="passwordtwofo()">
                     </div>
                     <div class="input-group input-group-lg my-4 d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary">Signup</button>
+                        <button type="button" id="signup" class="btn btn-primary">Signup</button>
                     </div>
                 </div>
             </form>
