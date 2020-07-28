@@ -23,5 +23,7 @@ urlpatterns = [
     path('usersignup', det.usersignup, name='usersignup'),
     path('login', det.userlogin, name='userlogin'),
     path('home', det.home, name='home'),
+    path('etracker', det.etracker, name='etracker'),
+    path('lmoney', det.lmoney, name='lmoney'),
     path('signout', det.signout, name='signout')
 ]

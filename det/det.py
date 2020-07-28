@@ -24,6 +24,22 @@ def home(request):
         return render(request, 'det/index.html')
 
 
+def etracker(request):
+    if 'alldata' in request.session:
+        alldataone = request.session['alldata']
+        return render(request, 'det/etracker.html', alldataone)
+    else:
+        return render(request, 'det/index.html')
+
+
+def lmoney(request):
+    if 'alldata' in request.session:
+        alldataone = request.session['alldata']
+        return render(request, 'det/lmoney.html', alldataone)
+    else:
+        return render(request, 'det/index.html')
+
+
 def signout(request):
     if 'signout' in request.POST:
         if 'alldata' in request.session:
@@ -32,7 +48,7 @@ def signout(request):
 
 
 def usersignup(request):
-    
+
     userdetails = DetUsers()
     fname1 = request.GET['fname']
     lname1 = request.GET['lname']

@@ -5,7 +5,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/det/det.py" beforeDir="false" afterPath="$PROJECT_DIR$/det/det.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/det/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/det/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/det.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/det.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/det/etracker.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/det/etracker.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/det/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/det/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/det/lmoney.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/det/lmoney.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/det/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/det/menu.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -105,7 +107,7 @@
       <workItem from="1595677238184" duration="28081000" />
       <workItem from="1595751223000" duration="25443000" />
       <workItem from="1595913928574" duration="18367000" />
-      <workItem from="1595933884396" duration="8396000" />
+      <workItem from="1595933884396" duration="12498000" />
     </task>
     <servers />
   </component>
