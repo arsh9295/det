@@ -79,11 +79,11 @@ function userLogin() {
                 loginresponse = xhttp.responseText;
                 //alert(loginresponse)
                 if (loginresponse!='false'){
-                    document.getElementById('loading').style.display = 'none'
-                    window.location.href = 'home'
+                    document.getElementById('loading').style.display = 'none';
+                    window.location.href = 'home';
                 }
                 else {
-                    document.getElementById('loading').style.display = 'none'
+                    document.getElementById('loading').style.display = 'none';
                     document.getElementById("wrong_credentials").style.display = "block";
                 }
             }

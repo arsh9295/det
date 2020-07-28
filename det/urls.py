@@ -22,5 +22,6 @@ urlpatterns = [
     path('', det.index, name='det'),
     path('usersignup', det.usersignup, name='usersignup'),
     path('login', det.userlogin, name='userlogin'),
-    path('home', det.home, name='home')
+    path('home', det.home, name='home'),
+    path('signout', det.signout, name='signout')
 ]

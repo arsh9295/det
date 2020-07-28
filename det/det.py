@@ -6,27 +6,33 @@ from django.db import connection
 from . import forms
 from django.db.models import Q
 from django.template.response import TemplateResponse
+from django.contrib.sessions.models import Session
+
 
 def index(request):
-    return render(request, 'det/index.html')
+    if 'alldata' in request.session:
+        return render(request, 'det/home.html')
+    else:
+        return render(request, 'det/index.html')
 
 
 def home(request):
-    return render(request, 'det/home.html')
+    if 'alldata' in request.session:
+        alldataone = request.session['alldata']
+        return render(request, 'det/home.html', alldataone)
+    else:
+        return render(request, 'det/index.html')
+
+
+def signout(request):
+    if 'signout' in request.POST:
+        if 'alldata' in request.session:
+            request.session.flush()
+            return redirect('/')
 
 
 def usersignup(request):
-    '''userdetails = DetUsers()
-    userdetails.fname = request.POST['first_name']
-    userdetails.lname = request.POST['last_name']
-    userdetails.useremail = request.POST['emailid']
-    userpass = request.POST['passwordone']
-    passwordtwo = request.POST['passwordtwo']
-    if userpass == passwordtwo:
-        userdetails.userpass = userpass
-    userdetails.save()
-    return render(request, 'det/index.html') '''
-    #var url = '/login?fname='+allvalues[0]+'&lname='+allvalues[1]+'&emailid='+allvalues[2]+'&passwrd='+allvalues[3];
+    
     userdetails = DetUsers()
     fname1 = request.GET['fname']
     lname1 = request.GET['lname']
@@ -56,5 +62,7 @@ def userlogin(request):
     else:
         #return HttpResponse('true')
         userhomedata = dbusername.values()[0]
+        request.session['alldata'] = userhomedata
+        #return HttpResponse(userhomedata)
         return render(request, 'det/home.html', userhomedata)
 
