@@ -74,23 +74,17 @@ function userLogin() {
         document.getElementById('loading').style.display = 'block'
         var url = '/login?useremail='+useremail+'&userpassword='+userpassword;
         var xhttp = new XMLHttpRequest();
-        //alert(xhttp.responseText)
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 loginresponse = xhttp.responseText;
-                //alert(abc)
-                if (loginresponse=='true'){
+                //alert(loginresponse)
+                if (loginresponse!='false'){
                     document.getElementById('loading').style.display = 'none'
                     window.location.href = 'home'
                 }
                 else {
                     document.getElementById('loading').style.display = 'none'
-                      var x = document.getElementById("wrong_credentials");
-                      //if (x.style.display === "none") {
-                        x.style.display = "block";
-                      //} else {
-                       // x.style.display = "none";
-                      //}
+                    document.getElementById("wrong_credentials").style.display = "block";
                 }
             }
         };

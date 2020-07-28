@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5b00aef-4f54-4082-b9cd-f88bf694cc99" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/detsignup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/img_avatar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/det/menu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/det/det.py" beforeDir="false" afterPath="$PROJECT_DIR$/det/det.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/det.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/det.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/det/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/det/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/det/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/det/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -38,16 +40,16 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../sampledb" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Repos\Git\det\static\images" />
+      <recent name="D:\Repos\Git\det\templates\images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Repos\Git\det\static" />
       <recent name="D:\Repos\Git\det" />
       <recent name="D:\Repos\Git\det\det" />
       <recent name="D:\Repos\Git\det\static\det" />
       <recent name="D:\Repos\Git\det\templates\det" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Repos\Git\det\static\images" />
-      <recent name="D:\Repos\Git\det\templates\images" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -103,7 +105,9 @@
       <workItem from="1595526016746" duration="25310000" />
       <workItem from="1595597689646" duration="3198000" />
       <workItem from="1595677238184" duration="28081000" />
-      <workItem from="1595751223000" duration="24739000" />
+      <workItem from="1595751223000" duration="25443000" />
+      <workItem from="1595913928574" duration="18367000" />
+      <workItem from="1595933884396" duration="3301000" />
     </task>
     <servers />
   </component>
